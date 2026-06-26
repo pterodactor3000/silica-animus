@@ -300,5 +300,5 @@ Greenfield — no migration. Existing `.cursor/` lesson content in publisher rep
 
 #### Manual
 
-- [ ] 3.5 Workflow YAML valid in GitHub Actions
-- [ ] 3.6 Package visible on GitHub Packages after push to main
+- [x] 3.5 Workflow YAML valid in GitHub Actions
+- [x] 3.6 Package visible on GitHub Packages after push to main
