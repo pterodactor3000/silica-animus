@@ -279,15 +279,15 @@ Greenfield — no migration. Existing `.cursor/` lesson content in publisher rep
 
 #### Automated
 
-- [x] 2.1 `node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'))"`
-- [x] 2.2 `npm pack --dry-run` lists only expected files
-- [x] 2.3 `node --check install.js && node --check uninstall.js`
+- [x] 2.1 `node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'))"` — b1b1caa
+- [x] 2.2 `npm pack --dry-run` lists only expected files — b1b1caa
+- [x] 2.3 `node --check install.js && node --check uninstall.js` — b1b1caa
 
 #### Manual
 
-- [x] 2.4 Dual-path install smoke test in temp directory
-- [x] 2.5 Re-run install idempotency check
-- [x] 2.6 Uninstall cleans managed files
+- [x] 2.4 Dual-path install smoke test in temp directory — b1b1caa
+- [x] 2.5 Re-run install idempotency check — b1b1caa
+- [x] 2.6 Uninstall cleans managed files — b1b1caa
 
 ### Phase 3: CI/CD Pipeline
 

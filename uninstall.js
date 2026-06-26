@@ -59,11 +59,20 @@ function main() {
   for (const name of RULES_FILES) {
     const rulesPath = path.join(projectRoot, name);
     if (!fs.existsSync(rulesPath)) continue;
-    fs.writeFileSync(rulesPath, removeRulesBlock(fs.readFileSync(rulesPath, "utf8")));
+    const cleaned = removeRulesBlock(fs.readFileSync(rulesPath, "utf8"));
+    if (cleaned.trim() === "") {
+      fs.rmSync(rulesPath, { force: true });
+    } else {
+      fs.writeFileSync(rulesPath, cleaned);
+    }
   }
 
   fs.rmSync(manifestPath, { force: true });
   console.log(`${PACKAGE_NAME}: uninstalled managed files`);
 }
 
-main();
+try {
+  main();
+} catch (error) {
+  console.warn(`${PACKAGE_NAME}: uninstall warning: ${error.message}`);
+}
