@@ -2,7 +2,7 @@
 
 ## Overview
 
-Scaffold `@pterodactor3000/silica-animus` at the silica-animus repo root: a distributable npm package containing a `code-review` Agent Skill, team rules derived from M5L4 conventions, dual-target installers (Cursor + Claude Code), and a GitHub Actions workflow that validates and publishes to GitHub Packages.
+Scaffold `@pterodactor3000/silica-animus` at the silica-animus repo root: a distributable npm package containing a `rites-of-code-review` Agent Skill, team rules derived from M5L4 conventions, dual-target installers (Cursor + Claude Code), and a GitHub Actions workflow that validates and publishes to GitHub Packages.
 
 ## Current State Analysis
 
@@ -22,7 +22,7 @@ A consumer repo can:
 
 1. Add `@pterodactor3000:registry=https://npm.pkg.github.com` to `.npmrc` (no token committed)
 2. Run `npm install @pterodactor3000/silica-animus`
-3. Receive `code-review` skill in `.cursor/skills/` and `.claude/skills/`
+3. Receive `rites-of-code-review` skill in `.cursor/skills/` and `.claude/skills/`
 4. Receive conventions block in `AGENTS.md` and `CLAUDE.md` between sentinel markers
 5. See manifest at `.cursor/.silica-animus-manifest.json` tracking all installed paths
 
@@ -69,11 +69,11 @@ Create the distributable skill and rules content that the package publishes.
 
 #### 1. Code-review skill
 
-**File**: `skills/code-review/SKILL.md`
+**File**: `skills/rites-of-code-review/SKILL.md`
 
 **Intent**: Generate the M5L4 code-review Agent Skill from `m5l4-shared-conventions.md`, implementing all six review categories with severity-ordered output and a final APPROVE / REQUEST CHANGES / NEEDS DISCUSSION verdict.
 
-**Contract**: YAML frontmatter with `name: code-review` and `description: Review code changes against team engineering conventions, testing standards and security expectations.` Trigger phrases: "review code", "check this PR", "review my changes", "code review". Body sections for Naming, Error handling, TypeScript, Function design, Security, Testing — each with concrete checks derived from the conventions handout, not invented rules.
+**Contract**: YAML frontmatter with `name: rites-of-code-review` and `description: Review code changes against team engineering conventions, testing standards and security expectations.` Trigger phrases: "review code", "check this PR", "review my changes", "code review". Body sections for Naming, Error handling, TypeScript, Function design, Security, Testing — each with concrete checks derived from the conventions handout, not invented rules. Skill title line uses `// [rites-of-code-review INVOKED] :: <by-whom-if-data-available> //`; output section headers use `// [<header>] //`.
 
 #### 2. Team rules bundle
 
@@ -87,10 +87,10 @@ Create the distributable skill and rules content that the package publishes.
 
 #### Automated Verification:
 
-- `test -f skills/code-review/SKILL.md`
+- `test -f skills/rites-of-code-review/SKILL.md`
 - `test -f rules/AGENTS.md`
-- `grep -q '^name: code-review' skills/code-review/SKILL.md`
-- `grep -q '^description:' skills/code-review/SKILL.md`
+- `grep -q '^name: rites-of-code-review' skills/rites-of-code-review/SKILL.md`
+- `grep -q '^description:' skills/rites-of-code-review/SKILL.md`
 
 #### Manual Verification:
 
@@ -167,7 +167,7 @@ Create the npm package manifest, lockfile, publisher `.npmrc`, package README, a
 
 #### Manual Verification:
 
-- `PROJECT_ROOT=/tmp/silica-animus-test node install.js` installs to both `.cursor/skills/code-review/` and `.claude/skills/code-review/`
+- `PROJECT_ROOT=/tmp/silica-animus-test node install.js` installs to both `.cursor/skills/rites-of-code-review/` and `.claude/skills/rites-of-code-review/`
 - Re-running install updates sentinels without duplication
 - `PROJECT_ROOT=/tmp/silica-animus-test node uninstall.js` cleans managed files
 
@@ -194,9 +194,9 @@ Add GitHub Actions workflow with full M5L4 validation and publish to GitHub Pack
 1. `npm ci`
 2. Verify `package.json` has `name`, `version`, `publishConfig.registry`:
    `node -e "const p=require('./package.json'); ['name','version'].forEach(k=>{if(!p[k])throw new Error(k+' missing')}); if(!p.publishConfig?.registry)throw new Error('publishConfig.registry missing')"`
-3. `test -f skills/code-review/SKILL.md`
-4. Verify frontmatter `name: code-review` and `description:` present (shell grep)
-5. Verify frontmatter `name` matches directory `code-review` (shell)
+3. `test -f skills/rites-of-code-review/SKILL.md`
+4. Verify frontmatter `name: rites-of-code-review` and `description:` present (shell grep)
+5. Verify frontmatter `name` matches directory `rites-of-code-review` (shell)
 6. `npm pack --dry-run`
 
 Publish job: `npm publish` with `NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}`, `if: github.event_name == 'push'`.
@@ -234,7 +234,7 @@ Not in scope for v0.1.0 — validation is CI shell checks + manual smoke tests.
 
 1. Clone scratch repo, add consumer `.npmrc` with scope mapping
 2. `npm install` from local tarball (`npm pack` + `npm install ./pterodactor3000-silica-animus-0.1.0.tgz`)
-3. Verify `.cursor/skills/code-review/SKILL.md` and `.claude/skills/code-review/SKILL.md` exist
+3. Verify `.cursor/skills/rites-of-code-review/SKILL.md` and `.claude/skills/rites-of-code-review/SKILL.md` exist
 4. Verify sentinel blocks in `AGENTS.md` and `CLAUDE.md`
 5. Re-run install — no duplicate blocks
 6. Run uninstall — managed files removed, sentinels stripped
@@ -265,29 +265,29 @@ Greenfield — no migration. Existing `.cursor/` lesson content in publisher rep
 
 #### Automated
 
-- [x] 1.1 `test -f skills/rites-of-code-review/SKILL.md`
-- [x] 1.2 `test -f rules/AGENTS.md`
-- [x] 1.3 `grep -q '^name: rites-of-code-review' skills/rites-of-code-review/SKILL.md`
-- [x] 1.4 `grep -q '^description:' skills/rites-of-code-review/SKILL.md`
+- [x] 1.1 `test -f skills/rites-of-code-review/SKILL.md` — 9e30ddc
+- [x] 1.2 `test -f rules/AGENTS.md` — 9e30ddc
+- [x] 1.3 `grep -q '^name: rites-of-code-review' skills/rites-of-code-review/SKILL.md` — 9e30ddc
+- [x] 1.4 `grep -q '^description:' skills/rites-of-code-review/SKILL.md` — 9e30ddc
 
 #### Manual
 
-- [x] 1.5 Skill reads as actionable review instructions
-- [x] 1.6 Rules file covers all six convention categories
+- [x] 1.5 Skill reads as actionable review instructions — 9e30ddc
+- [x] 1.6 Rules file covers all six convention categories — 9e30ddc
 
 ### Phase 2: Package Shell and Installers
 
 #### Automated
 
-- [ ] 2.1 `node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'))"`
-- [ ] 2.2 `npm pack --dry-run` lists only expected files
-- [ ] 2.3 `node --check install.js && node --check uninstall.js`
+- [x] 2.1 `node -e "JSON.parse(require('fs').readFileSync('package.json','utf8'))"`
+- [x] 2.2 `npm pack --dry-run` lists only expected files
+- [x] 2.3 `node --check install.js && node --check uninstall.js`
 
 #### Manual
 
-- [ ] 2.4 Dual-path install smoke test in temp directory
-- [ ] 2.5 Re-run install idempotency check
-- [ ] 2.6 Uninstall cleans managed files
+- [x] 2.4 Dual-path install smoke test in temp directory
+- [x] 2.5 Re-run install idempotency check
+- [x] 2.6 Uninstall cleans managed files
 
 ### Phase 3: CI/CD Pipeline
 
