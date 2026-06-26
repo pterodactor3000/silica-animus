@@ -29,8 +29,8 @@ jobs:
 
       - run: test -f skills/rites-of-code-review/SKILL.md
 
-      - run: grep -q '^name: rites-of-code-review' skills/rites-of-code-review/SKILL.md
-      - run: grep -q '^description:' skills/rites-of-code-review/SKILL.md
+      - run: "grep -q '^name: rites-of-code-review' skills/rites-of-code-review/SKILL.md"
+      - run: "grep -q '^description:' skills/rites-of-code-review/SKILL.md"
 
       - run: |
           SKILL=skills/rites-of-code-review/SKILL.md
