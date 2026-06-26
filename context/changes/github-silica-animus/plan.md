@@ -293,10 +293,10 @@ Greenfield — no migration. Existing `.cursor/` lesson content in publisher rep
 
 #### Automated
 
-- [ ] 3.1 `test -f .github/workflows/publish-silica-animus.yml`
-- [ ] 3.2 `grep -q 'packages: write' .github/workflows/publish-silica-animus.yml`
-- [ ] 3.3 `grep -q '@pterodactor3000' .github/workflows/publish-silica-animus.yml`
-- [ ] 3.4 `grep -q 'npm pack --dry-run' .github/workflows/publish-silica-animus.yml`
+- [x] 3.1 `test -f .github/workflows/publish-silica-animus.yml`
+- [x] 3.2 `grep -q 'packages: write' .github/workflows/publish-silica-animus.yml`
+- [x] 3.3 `grep -q '@pterodactor3000' .github/workflows/publish-silica-animus.yml`
+- [x] 3.4 `grep -q 'npm pack --dry-run' .github/workflows/publish-silica-animus.yml`
 
 #### Manual
 

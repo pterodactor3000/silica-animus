@@ -1,0 +1,11 @@
+{
+  "package": "@pterodactor3000/silica-animus",
+  "version": "0.1.0",
+  "installedAt": "2026-06-26T15:52:12.408Z",
+  "files": [
+    ".cursor/skills/rites-of-code-review/SKILL.md",
+    ".claude/skills/rites-of-code-review/SKILL.md",
+    "AGENTS.md",
+    "CLAUDE.md"
+  ]
+}
