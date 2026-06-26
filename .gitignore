@@ -1,0 +1,6 @@
+# Postinstall side effects when running npm install at publisher repo root
+AGENTS.md
+CLAUDE.md
+.cursor/.silica-animus-manifest.json
+.cursor/skills/rites-of-code-review/
+.claude/skills/rites-of-code-review/

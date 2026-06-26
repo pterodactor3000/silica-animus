@@ -293,12 +293,12 @@ Greenfield — no migration. Existing `.cursor/` lesson content in publisher rep
 
 #### Automated
 
-- [x] 3.1 `test -f .github/workflows/publish-silica-animus.yml`
-- [x] 3.2 `grep -q 'packages: write' .github/workflows/publish-silica-animus.yml`
-- [x] 3.3 `grep -q '@pterodactor3000' .github/workflows/publish-silica-animus.yml`
-- [x] 3.4 `grep -q 'npm pack --dry-run' .github/workflows/publish-silica-animus.yml`
+- [x] 3.1 `test -f .github/workflows/publish-silica-animus.yml` — 30d86fe
+- [x] 3.2 `grep -q 'packages: write' .github/workflows/publish-silica-animus.yml` — 30d86fe
+- [x] 3.3 `grep -q '@pterodactor3000' .github/workflows/publish-silica-animus.yml` — 30d86fe
+- [x] 3.4 `grep -q 'npm pack --dry-run' .github/workflows/publish-silica-animus.yml` — 30d86fe
 
 #### Manual
 
-- [ ] 3.5 Workflow YAML valid in GitHub Actions
-- [ ] 3.6 Package visible on GitHub Packages after push to main
+- [x] 3.5 Workflow YAML valid in GitHub Actions — 832b8ca
+- [x] 3.6 Package visible on GitHub Packages after push to main — 832b8ca
