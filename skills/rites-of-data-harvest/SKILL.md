@@ -49,29 +49,31 @@ Each recommendation is one line: `IDENTIFIER — title — <why now>` where *why
 
 ## Output Format
 
+In emitted output, **all characters between `[` and `]` must be UPPERCASE** — section headers, labels, and any dynamic bracket text.
+
 Structure the report with these headers exactly:
 
 ```
-// [Status Report] //
+// [STATUS REPORT] //
 Provider: <name> · Scope: <me | team | project> · As of: <YYYY-MM-DD>
 
-// [Blocked] //
+// [BLOCKED] //
 <IDENTIFIER> — <title> — <blocker or reason>
 … or `None.`
 
-// [Review ready] //
+// [REVIEW READY] //
 <IDENTIFIER> — <title> — <reviewer or waiting-on if known>
 … or `None.`
 
-// [Out of scope] //
+// [OUT OF SCOPE] //
 <IDENTIFIER> — <title> — <reason>
 … or `None.`
 
-// [Out of radar] //
+// [OUT OF RADAR] //
 <IDENTIFIER> — <title> — <why off radar, e.g. stale 21d, unassigned>
 … or `None.`
 
-// [Recommended] //
+// [RECOMMENDED] //
 1. <IDENTIFIER> — <title> — <why now>
 … up to 3 items, or `None — nothing ready; resolve blocked items first.`
 ```

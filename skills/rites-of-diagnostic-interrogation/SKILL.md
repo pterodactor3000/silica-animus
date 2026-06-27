@@ -1,11 +1,11 @@
 ---
-name: rites-of-code-review
-description: Review code changes against team engineering conventions, testing standards and security expectations.
+name: rites-of-diagnostic-interrogation
+description: Review code changes against team engineering conventions, testing standards and security expectations. Use when reviewing pull requests, examining code changes, or when the user asks for a code review, diagnostic interrogation, or invokes rites-of-diagnostic-interrogation.
 ---
 
-# Code Review
+# Diagnostic Interrogation
 
-Use this skill when the user says "review code", "check this PR", "review my changes", or "code review".
+Use this skill when the user says "review code", "check this PR", "review my changes", "code review", or "rites-of-diagnostic-interrogation".
 
 ## Workflow
 
@@ -63,19 +63,21 @@ Use this skill when the user says "review code", "check this PR", "review my cha
 
 ## Output Format
 
+In emitted output, **all characters between `[` and `]` must be UPPERCASE** — section headers, labels, and any dynamic bracket text.
+
 Structure the review with these headers exactly:
 
 ```
-// [Critical] //
+// [CRITICAL] //
 <file:line> — <finding>
 
-// [Warning] //
+// [WARNING] //
 <file:line> — <finding>
 
-// [Suggestion] //
+// [SUGGESTION] //
 <file:line> — <finding>
 
-// [Verdict] //
+// [VERDICT] //
 APPROVE | REQUEST CHANGES | NEEDS DISCUSSION — <one-line rationale>
 ```
 
@@ -85,7 +87,7 @@ Rules for output:
 - Include `file:line` when the location is known; omit the prefix only when the finding is cross-cutting.
 - One finding per bullet under each severity header.
 - If a severity has no findings, write `None.` under that header.
-- End with exactly one verdict line under `// [Verdict] //`.
+- End with exactly one verdict line under `// [VERDICT] //`.
 
 ### Verdict guidance
 

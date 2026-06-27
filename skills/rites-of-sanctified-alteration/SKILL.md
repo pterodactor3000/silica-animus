@@ -78,16 +78,18 @@ Create matching task in <provider>? Reply: `yes` · `no` · or `<team/project/mi
 
 ## Output Format
 
+In emitted output, **all characters between `[` and `]` must be UPPERCASE** in section headers and labels. Issue title prefixes (`// [S-NN]::[change-id] //`) keep documented ID casing for tracker writes.
+
 ### Preview (before roadmap approval)
 
 ```
-// [Sanctified Alteration — Preview] //
+// [SANCTIFIED ALTERATION — PREVIEW] //
 Next ID: S-NN · Change ID: <kebab-case> · Status: <proposed | ready | blocked>
 
-// [Roadmap — At a glance row] //
+// [ROADMAP — AT A GLANCE ROW] //
 | S-NN | <change-id> | <outcome truncated> | <prerequisites> | <PRD refs> | <status> |
 
-// [Roadmap — Slice body] //
+// [ROADMAP — SLICE BODY] //
 ### S-NN: <Slice title>
 
 - **Outcome:** <user can …>
@@ -100,10 +102,10 @@ Next ID: S-NN · Change ID: <kebab-case> · Status: <proposed | ready | blocked>
 - **Risk:** <one line>
 - **Status:** <status>
 
-// [Roadmap — Backlog Handoff row] //
+// [ROADMAP — BACKLOG HANDOFF ROW] //
 | S-NN | <change-id> | <suggested issue title sans prefix> | <yes | no> | <notes> |
 
-// [Issue tracker preview] //
+// [ISSUE TRACKER PREVIEW] //
 Provider: <name or `none detected`>
 Title: // [S-NN]::[change-id] // <type>: <≤10 words>
 Team/Project: <inferred or `— specify on approve`>
@@ -133,17 +135,17 @@ Preview rules:
 ### Summary (after execution)
 
 ```
-// [Alteration Summary] //
+// [ALTERATION SUMMARY] //
 Slice: S-NN · Change ID: <change-id> · Executed: <YYYY-MM-DD>
 
-// [Roadmap] //
+// [ROADMAP] //
 roadmap.md — <updated | skipped>
 
-// [Issue] //
+// [ISSUE] //
 <IDENTIFIER> — <created | skipped> — <title>
 … or `None — user declined or no MCP.`
 
-// [Failed] //
+// [FAILED] //
 <item> — <reason>
 … or `None.`
 ```

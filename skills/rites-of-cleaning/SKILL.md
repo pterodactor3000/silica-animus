@@ -46,7 +46,7 @@ After Step 4 findings, approve in this **fixed order** — one category per turn
 For each category where N > 0:
 
 **Part A — overview (required)**  
-Post the full `// [Overview — …] //` block: every issue with plain title, **What**, and **Flag**. User must be able to decide without opening Linear.
+Post the full `// [OVERVIEW — …] //` block: every issue with plain title, **What**, and **Flag**. User must be able to decide without opening Linear.
 
 **Part B — approval ask (same message, after overview)**  
 One line at the bottom:
@@ -71,12 +71,14 @@ When N = 0, skip the category silently.
 
 ## Output Format
 
+In emitted output, **all characters between `[` and `]` must be UPPERCASE** — section headers, labels, and any dynamic bracket text (e.g. `[OVERVIEW — NEEDS-ASSIGNEE]`).
+
 ### Findings (before approval — counts only)
 
 Show this first. Keep to **≤ 8 lines**. No per-issue detail here — that goes in category overviews.
 
 ```
-// [Findings] //
+// [FINDINGS] //
 Provider: <name> · Scope: <team | project> · Scanned: <N total>, <M active>
 
 Counts: duplicates <N> · unassigned <N> · missing AC <N> · missing milestone <N> · stale <N>
@@ -98,7 +100,7 @@ Findings rules:
 **Must be visible chat text**, not a tool prompt. One block per category turn.
 
 ```
-// [Overview — <category name>] //
+// [OVERVIEW — <CATEGORY NAME>] //
 Action: <what will happen if approved, e.g. "Add label needs-assignee">
 
 <IDENTIFIER> — <short plain title, not raw tracker slug>
@@ -124,13 +126,13 @@ Overview rules:
 Example (full turn — this is the entire assistant reply for that category):
 
 ```
-// [Findings] //
+// [FINDINGS] //
 Provider: Linear · Scope: Tech Heresy · Scanned: 24 total, 5 active
 Counts: duplicates 0 · unassigned 5 · missing AC 0 · missing milestone 0 · stale 0
 Already clean: duplicates closed; AC tagged; milestones set; updated yesterday
 Proposed: needs-assignee (5)
 
-// [Overview — needs-assignee] //
+// [OVERVIEW — NEEDS-ASSIGNEE] //
 Action: Add label needs-assignee
 
 TEC-19 — Square UI containers
@@ -147,18 +149,18 @@ Approve **needs-assignee** for all 5 issues above? Reply: `approve all` · `skip
 ### Summary (after execution)
 
 ```
-// [Cleaning Summary] //
+// [CLEANING SUMMARY] //
 Provider: <name> · Approved: <categories> · Executed: <YYYY-MM-DD>
 
-// [Closed duplicates] //
+// [CLOSED DUPLICATES] //
 <IDENTIFIER> → closed as duplicate of <CANONICAL_ID>
 … or `None.`
 
-// [Tagged] //
+// [TAGGED] //
 <IDENTIFIER> — added: <label1>, <label2>
 … or `None.`
 
-// [Skipped / failed] //
+// [SKIPPED / FAILED] //
 <IDENTIFIER> — <reason>
 … or `None.`
 ```

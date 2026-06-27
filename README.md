@@ -16,7 +16,7 @@ On `npm install`, the postinstall script copies managed content into your projec
 | Conventions | sentinel block in `AGENTS.md` | sentinel block in `CLAUDE.md` |
 | Manifest | `.cursor/.silica-animus-manifest.json` | (listed in manifest) |
 
-Current skills: `rites-of-code-review`.
+Current skills: `rites-of-binary-merge`, `rites-of-cleaning`, `rites-of-data-harvest`, `rites-of-diagnostic-interrogation`, `rites-of-sacred-fabrication`, `rites-of-sanctified-alteration`.
 
 Sentinel markers:
 

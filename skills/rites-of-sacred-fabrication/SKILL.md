@@ -47,28 +47,30 @@ Approve **<create | update>** for project "<name>"? Reply: `approve` · `skip` �
 
 ## Output Format
 
+In emitted output, **all characters between `[` and `]` must be UPPERCASE** — section headers, labels, and any dynamic bracket text (e.g. `[PTERODACTOR3000]` in audit comments).
+
 ### Overview (before approval — required)
 
 ```
-// [Sacred Fabrication — Overview] //
+// [SACRED FABRICATION — OVERVIEW] //
 Mode: <create | update> · Provider: <name> · Project: <PRD project name>
 PRD: v<version> · Roadmap: <slice count> slices · <stream count> streams
 
-// [Project] //
+// [PROJECT] //
 Name: <from PRD frontmatter>
 Summary: <one line from Vision & Problem Statement>
 Description sections: <comma-separated section names to write, e.g. Vision, Success Criteria, User Stories, FR index>
 
-// [Milestones] //
+// [MILESTONES] //
 <Stream letter or ordinal> — <Theme> — Chain: <F-01 → S-01 → …>
   Scope: <one line from stream Note or derived from slice outcomes>
 … one block per stream; or `None — roadmap has no Streams section.`
 
-// [Changes — update mode only] //
+// [CHANGES — UPDATE MODE ONLY] //
 <field or milestone> — <what changed> — <why, from PRD/roadmap diff>
 … or `None — already in sync.`
 
-// [PR audit — update mode only] //
+// [PR AUDIT — UPDATE MODE ONLY] //
 <PR #N> — linked issue <IDENTIFIER> — in scope: <yes | no> — <reason>
 … or `No repository MCP.` · or `No linked PRs in scope.`
 
@@ -85,25 +87,25 @@ Overview rules:
 ### Summary (after execution)
 
 ```
-// [Fabrication Summary] //
+// [FABRICATION SUMMARY] //
 Provider: <name> · Mode: <create | update> · Executed: <YYYY-MM-DD>
 
-// [Project] //
+// [PROJECT] //
 <name> — <created | updated> — <provider identifier or URL if returned>
 
-// [Milestones] //
+// [MILESTONES] //
 <name> — <created | updated | unchanged>
 … or `None.`
 
-// [Audit comments] //
+// [AUDIT COMMENTS] //
 <target> — posted
 … or `None.`
 
-// [PR audit comments] //
+// [PR AUDIT COMMENTS] //
 <PR #N> — posted
 … or `None.`
 
-// [Skipped / failed] //
+// [SKIPPED / FAILED] //
 <item> — <reason>
 … or `None.`
 ```
@@ -113,13 +115,13 @@ Provider: <name> · Mode: <create | update> · Executed: <YYYY-MM-DD>
 On **update mode only**, post this exact format (Markdown body) to the project and to each in-scope linked PR:
 
 ```
-// [<who>] // :: Liturgy of Holy Sustenance :: // <when> //
+// [WHO] // :: Liturgy of Holy Sustenance :: // <when> //
 <what changed; why>
 ```
 
-| Field | Value |
-| ----- | ----- |
-| `<who>` | Current user display name from MCP if available; else `agent` |
+| Field | Rule |
+| ----- | ---- |
+| `<who>` | Current user display name from MCP if available; else `agent` — **uppercase inside brackets** in emitted output |
 | `<when>` | `YYYY-MM-DD` (today) |
 | `<what changed; why>` | One or two sentences from the diff — concrete IDs (`FR-003`, `S-02`, stream B) and rationale from PRD/roadmap |
 
