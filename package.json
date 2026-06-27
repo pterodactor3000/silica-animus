@@ -1,6 +1,6 @@
 {
   "name": "@pterodactor3000/silica-animus",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Team AI artifacts distributed through GitHub Packages",
   "license": "UNLICENSED",
   "type": "commonjs",
