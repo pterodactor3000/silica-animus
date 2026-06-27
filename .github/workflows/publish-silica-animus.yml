@@ -27,13 +27,13 @@ jobs:
       - run: |
           node -e "const p=require('./package.json'); ['name','version'].forEach(k=>{if(!p[k])throw new Error(k+' missing')}); if(!p.publishConfig?.registry)throw new Error('publishConfig.registry missing')"
 
-      - run: test -f skills/rites-of-code-review/SKILL.md
+      - run: test -f skills/rites-of-diagnostic-interrogation/SKILL.md
 
-      - run: "grep -q '^name: rites-of-code-review' skills/rites-of-code-review/SKILL.md"
-      - run: "grep -q '^description:' skills/rites-of-code-review/SKILL.md"
+      - run: "grep -q '^name: rites-of-diagnostic-interrogation' skills/rites-of-diagnostic-interrogation/SKILL.md"
+      - run: "grep -q '^description:' skills/rites-of-diagnostic-interrogation/SKILL.md"
 
       - run: |
-          SKILL=skills/rites-of-code-review/SKILL.md
+          SKILL=skills/rites-of-diagnostic-interrogation/SKILL.md
           DIR=$(basename "$(dirname "$SKILL")")
           NAME=$(grep '^name:' "$SKILL" | head -1 | awk '{print $2}')
           test "$DIR" = "$NAME"
